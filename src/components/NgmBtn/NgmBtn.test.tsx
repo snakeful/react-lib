@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import NgmBtn from './NgmBtn';
+import { NgmBtn } from './NgmBtn';
 
 describe('Enigma Button Test', () => {
   test('renders This is a button', () => {

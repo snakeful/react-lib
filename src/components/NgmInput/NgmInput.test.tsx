@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import NgmInput from './NgmInput';
+import { NgmInput } from './NgmInput';
 
 describe('Enigma Input Test', () => {
   test('renders placeholder message', () => {
