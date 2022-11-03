@@ -1,20 +1,15 @@
 import React from 'react';
+import { Button, ButtonProps } from 'react-bootstrap';
 import './NgmBtn.css';
 
-export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  backgroundColor?: string;
-  color?: string;
+export interface IButtonProps extends ButtonProps {
 }
 
-const NgmBtn: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const { children, backgroundColor, color, style } = props;
-  const customStyle: React.CSSProperties = style || {};
-
-  customStyle.backgroundColor = backgroundColor ?? style?.backgroundColor;
-  customStyle.color = color ?? style?.color;
+const NgmBtn: React.FC<IButtonProps> = (props: IButtonProps) => {
+  const { children, variant = 'primary' } = props;
   return (
-    <button className="NgmBtn" style={customStyle} {...props}>{children}</button>
+    <Button variant={variant} {...props}>{children}</Button>
   );
-}
+};
 
 export default NgmBtn;
