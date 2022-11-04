@@ -1,39 +1,31 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export interface HeaderProps extends React.CanvasHTMLAttributes<any> {
   brand: string;
 }
 
 export const NgmHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
-  const { brand } = props;
+  const { brand, children } = props;
+  console.log(children);
   return (
     <div {...props}>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
         <Container fluid>
-          <Navbar.Brand href="#home">{brand}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
+          {(children as any[]).filter(child => child.key === 'sidebar')}
+          <LinkContainer to='/home'>
+            <Navbar.Brand>
+              {brand}
+            </Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+          <Navbar.Collapse id='responsive-navbar-nav'>
+            <Nav className='me-auto'>
+              {(children as any[]).filter(child => child.key === 'left')}
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
+              {(children as any[]).filter(child => child.key === 'right')}
             </Nav>
           </Navbar.Collapse>
         </Container>

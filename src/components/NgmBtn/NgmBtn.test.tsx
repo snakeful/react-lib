@@ -10,7 +10,7 @@ describe('Enigma Button Test', () => {
 
   test('check if click is called', () => {
     const clickFn = jest.fn();
-    render(<NgmBtn onClick={clickFn} data-testid="button">This is a button!</NgmBtn>);
+    render(<NgmBtn onClick={clickFn} data-testid='button'>This is a button!</NgmBtn>);
     const button = screen.getByTestId('button');
     fireEvent.click(button);
     expect(clickFn).toHaveBeenCalled();
