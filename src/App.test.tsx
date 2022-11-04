@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 describe('Enigma App React Lib Testing', () => {
@@ -16,6 +17,10 @@ describe('Enigma App React Lib Testing', () => {
         dispatchEvent: jest.fn(),
       }))
     });
-    render(<App />);
+    render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    );
   });
 })

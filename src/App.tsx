@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <div className="App">
       <NgmLayout options={{ brand: 'Enigma React Lib', sidebarTitle: 'Sidebar Menu' }}>
         <Routes key="content">
-          <Route path="/home" element={<Home></Home>} />
+          <Route path="/" element={<Home></Home>} />
           <Route path="/login" element={<Login></Login>} />
         </Routes>
       </NgmLayout>

@@ -8,13 +8,12 @@ export interface HeaderProps extends React.CanvasHTMLAttributes<any> {
 
 export const NgmHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
   const { brand, children } = props;
-  console.log(children);
   return (
     <div {...props}>
       <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
         <Container fluid>
-          {(children as any[]).filter(child => child.key === 'sidebar')}
-          <LinkContainer to='/home'>
+          {children instanceof Array ?? (children as any[]).filter(child => child.key === 'sidebar')}
+          <LinkContainer to='/'>
             <Navbar.Brand>
               {brand}
             </Navbar.Brand>
@@ -22,10 +21,10 @@ export const NgmHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='me-auto'>
-              {(children as any[]).filter(child => child.key === 'left')}
+              {children instanceof Array ?? (children as any[]).filter(child => child.key === 'left')}
             </Nav>
             <Nav>
-              {(children as any[]).filter(child => child.key === 'right')}
+              {children instanceof Array ?? (children as any[]).filter(child => child.key === 'right')}
             </Nav>
           </Navbar.Collapse>
         </Container>
