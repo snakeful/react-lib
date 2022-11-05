@@ -3,6 +3,7 @@ import { Card, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { NgmBtn, NgmInput } from '../../components';
 import { authActions } from '../../store/auth-slice';
+import './Login.css';
 
 export const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,10 +27,10 @@ export const Login: React.FC = () => {
   };
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Card>
+      <Form noValidate validated={validated} onSubmit={handleSubmit} className='Login'>
+        <Card bg='dark'>
           <Card.Header className='text-center'>
-            Login
+            <span className='text-light'>Login</span>
           </Card.Header>
           <Card.Body>
             <Form.Group className='mt-1'>
@@ -39,7 +40,7 @@ export const Login: React.FC = () => {
               <NgmInput label='Password' type='password' value={password} onChange={handlePass} required></NgmInput>
             </Form.Group>
             <Form.Group className='mt-1'>
-              <Form.Check label='Remember me?' type='switch' checked={rememberMe} onChange={handleRememberMe}></Form.Check>
+              <Form.Check className='text-light' label='Remember me?' type='switch' checked={rememberMe} onChange={handleRememberMe}></Form.Check>
             </Form.Group>
           </Card.Body>
           <Card.Footer className='text-right'>
