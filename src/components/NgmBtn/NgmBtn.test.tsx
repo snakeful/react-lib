@@ -3,7 +3,9 @@ import { NgmBtn } from './NgmBtn';
 
 describe('Enigma Button Test', () => {
   test('renders This is a button', () => {
-    render(<NgmBtn>This is a button!</NgmBtn>);
+    render(
+      <NgmBtn>This is a button!</NgmBtn>
+    );
     const linkElement = screen.getByText(/This is a button!/i);
     expect(linkElement).toBeInTheDocument();
   });

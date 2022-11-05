@@ -1,11 +1,16 @@
 import React from 'react';
-import { Form, FormControlProps } from 'react-bootstrap';
+import { FloatingLabel, Form, FormControlProps } from 'react-bootstrap';
 
-export interface InputProps extends FormControlProps { }
+export interface InputProps extends FormControlProps {
+  label?: string;
+  required?: boolean;
+}
 
 export const NgmInput: React.FC<InputProps> = (props: InputProps) => {
-  const { children, placeholder } = props
+  const { children, label, placeholder, required } = props
   return (
-    <Form.Control placeholder={placeholder || ''} {...props}>{children}</Form.Control>
+    <FloatingLabel label={label || ''}>
+      <Form.Control placeholder={placeholder || label} {...props} required={required}>{children}</Form.Control>
+    </FloatingLabel>
   )
 };

@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import store from './store';
 
 describe('Enigma App React Lib Testing', () => {
   test('renders Enigma Layout', () => {
@@ -18,9 +20,11 @@ describe('Enigma App React Lib Testing', () => {
       }))
     });
     render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
     );
   });
 })
