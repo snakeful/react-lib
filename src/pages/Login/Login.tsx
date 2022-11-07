@@ -42,7 +42,7 @@ export const Login: React.FC = () => {
               <NgmCheck className='text-light' label='Remember me?' type='switch' checked={rememberMe} onChange={handleRememberMe}></NgmCheck>
             </Form.Group>
           </Card.Body>
-          <Card.Footer className='text-right'>
+          <Card.Footer className='text-end pt-0 pb-3'>
             <NgmBtn type='submit'>Login</NgmBtn>
           </Card.Footer>
         </Card>
