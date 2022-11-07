@@ -1,13 +1,13 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import React from 'react'
+import { Container, Nav, Navbar } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
 export interface HeaderProps extends React.CanvasHTMLAttributes<any> {
-  brand: string;
+  brand: string
 }
 
 export const NgmHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
-  const { brand, children } = props;
+  const { brand, children } = props
 
   return (
     <div {...props}>
@@ -32,4 +32,4 @@ export const NgmHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
       </Navbar>
     </div>
   )
-};
+}

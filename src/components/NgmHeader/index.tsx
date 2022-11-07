@@ -1,1 +1,2 @@
-export * from './NgmHeader';
+export * from './NgmHeader'
+

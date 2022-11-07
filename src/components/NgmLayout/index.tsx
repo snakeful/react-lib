@@ -1,1 +1,2 @@
-export * from './NgmLayout';
+export * from './NgmLayout'
+

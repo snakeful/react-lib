@@ -1,1 +1,1 @@
-export * from './NgmProfile';
+export * from './NgmProfile'

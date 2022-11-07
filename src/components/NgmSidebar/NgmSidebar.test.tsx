@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { NgmSidebar } from './NgmSidebar';
+import { render, screen } from '@testing-library/react'
+import { NgmSidebar } from './NgmSidebar'
 
 describe('Enigma Input Test', () => {
   const matchMediaMock = () => { // Must be called for non render HTML elements
@@ -15,13 +15,13 @@ describe('Enigma Input Test', () => {
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn(),
       }))
-    });
-  };
+    })
+  }
 
   test('renders show sidebar', () => {
-    matchMediaMock();
-    render(<NgmSidebar show={true}>NgmSidebar</NgmSidebar>);
-    const textElement = screen.getByText('NgmSidebar');
-    expect(textElement).toBeInTheDocument();
-  });
-});
+    matchMediaMock()
+    render(<NgmSidebar show={true}>NgmSidebar</NgmSidebar>)
+    const textElement = screen.getByText('NgmSidebar')
+    expect(textElement).toBeInTheDocument()
+  })
+})

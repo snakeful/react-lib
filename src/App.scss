@@ -1,0 +1,19 @@
+.ngm-login {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: calc(15%);
+
+  & .card {
+    width: 30rem;
+    align-self: center;
+  }
+}
+
+.ngm-required {
+  & label::after {
+    content: " *";
+    color: red;
+    font-weight: bolder;
+  }
+}

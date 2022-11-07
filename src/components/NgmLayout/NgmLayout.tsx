@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import { FaBars } from 'react-icons/fa';
-import { NgmHeader } from '../NgmHeader/NgmHeader';
-import { NgmProfile } from '../NgmProfile';
-import { NgmSidebar } from '../NgmSidebar/NgmSidebar';
+import React, { useState } from 'react'
+import { Button, Container } from 'react-bootstrap'
+import { FaBars } from 'react-icons/fa'
+import { NgmHeader } from '../NgmHeader/NgmHeader'
+import { NgmProfile } from '../NgmProfile'
+import { NgmSidebar } from '../NgmSidebar/NgmSidebar'
 
 export interface LayoutProps extends React.HTMLProps<any> {
-  variant?: string;
+  variant?: string
   options?: {
-    brand: string;
-    sidebarTitle?: string;
-    logout: () => void;
-  };
+    brand: string
+    sidebarTitle?: string
+    logout: () => void
+  }
 };
 
 export const NgmLayout: React.FC<LayoutProps> = (props: LayoutProps) => {
-  const { children, options, variant = 'dark' } = props;
-  const { brand = '', sidebarTitle = '', logout = () => { } } = options || {};
-  const [show, setShow] = useState(false);
+  const { children, options, variant = 'dark' } = props
+  const { brand = '', sidebarTitle = '', logout = () => { } } = options || {}
+  const [show, setShow] = useState(false)
 
-  const toggleSidebar = () => setShow(true);
-  const onHide = () => setShow(false);
+  const toggleSidebar = () => setShow(true)
+  const onHide = () => setShow(false)
   return (
     <>
       <NgmSidebar title={sidebarTitle} show={show} onHide={onHide}></NgmSidebar>

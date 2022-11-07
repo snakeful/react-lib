@@ -1,1 +1,1 @@
-export * from './NgmBtn';
+export * from './NgmBtn'

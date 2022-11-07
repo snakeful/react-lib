@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+// import './App.scss';
 import { NgmLayout } from './components';
 import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';

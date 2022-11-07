@@ -1,6 +1,8 @@
-export * from './NgmBtn';
-export * from './NgmHeader';
-export * from './NgmInput';
-export * from './NgmLayout';
-export * from './NgmProfile';
-export * from './NgmSidebar';
+import '../App.scss'
+export * from './NgmBtn'
+export * from './NgmCheck'
+export * from './NgmControl'
+export * from './NgmHeader'
+export * from './NgmLayout'
+export * from './NgmProfile'
+export * from './NgmSidebar'

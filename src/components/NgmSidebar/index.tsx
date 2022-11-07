@@ -1,1 +1,1 @@
-export * from './NgmSidebar';
+export * from './NgmSidebar'

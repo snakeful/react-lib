@@ -1,15 +1,15 @@
-import React from 'react';
-import { NavDropdown, NavDropdownProps } from 'react-bootstrap';
-import { FaCog, FaDoorClosed, FaUser } from 'react-icons/fa';
+import React from 'react'
+import { NavDropdown, NavDropdownProps } from 'react-bootstrap'
+import { FaCog, FaDoorClosed, FaUser } from 'react-icons/fa'
 
 export interface ProfileProps extends NavDropdownProps {
-  logout?: () => void;
+  logout?: () => void
 };
 
 export const NgmProfile: React.FC<ProfileProps> = (props: ProfileProps) => {
-  const { children, logout = () => { } } = props;
-  const navProps = { ...props };
-  delete navProps.logout;
+  const { children, logout = () => { } } = props
+  const navProps = { ...props }
+  delete navProps.logout
   return (
     <>
       <NavDropdown {...navProps}>
@@ -30,4 +30,4 @@ export const NgmProfile: React.FC<ProfileProps> = (props: ProfileProps) => {
       </NavDropdown>
     </>
   )
-};
+}

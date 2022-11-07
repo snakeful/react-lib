@@ -1,12 +1,12 @@
-import React from 'react';
-import { Offcanvas, OffcanvasProps } from 'react-bootstrap';
+import React from 'react'
+import { Offcanvas, OffcanvasProps } from 'react-bootstrap'
 
 export interface SidebarProps extends OffcanvasProps {
-  onHide?: () => void;
+  onHide?: () => void
 }
 
 export const NgmSidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
-  const { children, title, onHide = () => { }, show = false } = props;
+  const { children, title, onHide = () => { }, show = false } = props
   return (
     <>
       <Offcanvas show={show} onHide={onHide} {...props}>
@@ -18,5 +18,5 @@ export const NgmSidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
         </Offcanvas.Body>
       </Offcanvas>
     </>
-  );
+  )
 }
