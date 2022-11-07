@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { Card, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
+import { AnyAction } from 'redux'
 import { NgmBtn, NgmCheck, NgmControl } from '../../components'
-import { authActions } from '../../store/auth-slice'
 
-export const Login: React.FC = () => {
+export interface LoginForm {
+  login: () => AnyAction
+}
+
+export const Login: React.FC<LoginForm> = ({ login }) => {
   const dispatch = useDispatch()
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
@@ -19,7 +23,7 @@ export const Login: React.FC = () => {
     const form = event.currentTarget
     if (form.checkValidity()) {
       // Login
-      dispatch(authActions.login())
+      dispatch(login())
       return
     }
     event.stopPropagation()
