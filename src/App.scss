@@ -10,6 +10,28 @@
   }
 }
 
+.ngm-modules {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-direction: row;
+  flex-direction: row;
+
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: distribute;
+  justify-content: space-between;
+}
+
+.ngm-module {
+  margin: 1rem 0 0 1rem !important;
+
+  flex-grow: 1;
+}
+
 .ngm-required {
   & label::after {
     content: " *";
