@@ -7,6 +7,7 @@ import { Sidebar } from '../Sidebar/Sidebar'
 
 export interface LayoutProps extends React.HTMLProps<any> {
   variant?: string
+  navLinks?: any[]
   options?: {
     brand: string
     sidebarTitle?: string
@@ -15,12 +16,13 @@ export interface LayoutProps extends React.HTMLProps<any> {
 };
 
 export const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
-  const { children, options, variant = 'dark' } = props
+  const { children, navLinks = [], options, variant = 'dark' } = props
   const { brand = '', sidebarTitle = '', logout = () => { } } = options || {}
   const [show, setShow] = useState(false)
 
   const toggleSidebar = () => setShow(true)
   const onHide = () => setShow(false)
+
   return (
     <>
       <Sidebar title={sidebarTitle} show={show} onHide={onHide}></Sidebar>
@@ -30,6 +32,7 @@ export const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
         </Button>
         <Profile menuVariant={variant} title='Profile' align='end' logout={logout} key='right'>
         </Profile>
+        {navLinks}
       </Header>
       <Container fluid>
         {children}
