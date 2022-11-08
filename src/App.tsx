@@ -1,9 +1,8 @@
+import { Layout } from 'components'
+import { Home, Login, NotFound } from 'pages'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import { NgmLayout } from './components'
-import { Home } from './pages/Home/Home'
-import { Login } from './pages/Login/Login'
 import { authActions } from './store/auth-slice'
 
 const App: React.FC = () => {
@@ -13,11 +12,12 @@ const App: React.FC = () => {
     <div className="App">
       {!isLoggedIn && <Login login={authActions.login} />}
       {isLoggedIn &&
-        <NgmLayout options={{ brand: 'Enigma React Lib', sidebarTitle: 'Sidebar Menu', logout: () => dispatch(authActions.logout()) }}>
+        <Layout options={{ brand: 'Enigma React Lib', sidebarTitle: 'Sidebar Menu', logout: () => dispatch(authActions.logout()) }}>
           <Routes key="content">
-            <Route path="/" element={<Home></Home>} />
+            <Route path="/" element={<Home />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
-        </NgmLayout>
+        </Layout>
       }
     </div>
   )

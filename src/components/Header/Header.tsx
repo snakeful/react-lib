@@ -6,7 +6,7 @@ export interface HeaderProps extends React.CanvasHTMLAttributes<any> {
   brand: string
 }
 
-export const NgmHeader: React.FC<HeaderProps> = (props: HeaderProps) => {
+export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   const { brand, children } = props
 
   return (

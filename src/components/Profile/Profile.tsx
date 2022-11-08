@@ -6,7 +6,7 @@ export interface ProfileProps extends NavDropdownProps {
   logout?: () => void
 };
 
-export const NgmProfile: React.FC<ProfileProps> = (props: ProfileProps) => {
+export const Profile: React.FC<ProfileProps> = (props: ProfileProps) => {
   const { children, logout = () => { } } = props
   const navProps = { ...props }
   delete navProps.logout

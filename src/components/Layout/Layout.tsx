@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { FaBars } from 'react-icons/fa'
-import { NgmHeader } from '../NgmHeader/NgmHeader'
-import { NgmProfile } from '../NgmProfile'
-import { NgmSidebar } from '../NgmSidebar/NgmSidebar'
+import { Header } from '../Header/Header'
+import { Profile } from '../Profile/Profile'
+import { Sidebar } from '../Sidebar/Sidebar'
 
 export interface LayoutProps extends React.HTMLProps<any> {
   variant?: string
@@ -14,7 +14,7 @@ export interface LayoutProps extends React.HTMLProps<any> {
   }
 };
 
-export const NgmLayout: React.FC<LayoutProps> = (props: LayoutProps) => {
+export const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   const { children, options, variant = 'dark' } = props
   const { brand = '', sidebarTitle = '', logout = () => { } } = options || {}
   const [show, setShow] = useState(false)
@@ -23,14 +23,14 @@ export const NgmLayout: React.FC<LayoutProps> = (props: LayoutProps) => {
   const onHide = () => setShow(false)
   return (
     <>
-      <NgmSidebar title={sidebarTitle} show={show} onHide={onHide}></NgmSidebar>
-      <NgmHeader brand={brand}>
+      <Sidebar title={sidebarTitle} show={show} onHide={onHide}></Sidebar>
+      <Header brand={brand}>
         <Button variant={variant} onClick={toggleSidebar} key='sidebar' className='mx-1'>
           <FaBars />
         </Button>
-        <NgmProfile menuVariant={variant} title='Profile' align='end' logout={logout} key='right'>
-        </NgmProfile>
-      </NgmHeader>
+        <Profile menuVariant={variant} title='Profile' align='end' logout={logout} key='right'>
+        </Profile>
+      </Header>
       <Container fluid>
         {children}
       </Container>

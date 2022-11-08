@@ -5,7 +5,7 @@ export interface SidebarProps extends OffcanvasProps {
   onHide?: () => void
 }
 
-export const NgmSidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
+export const Sidebar: React.FC<SidebarProps> = (props: SidebarProps) => {
   const { children, title, onHide = () => { }, show = false } = props
   return (
     <>

@@ -6,10 +6,10 @@ export interface ControlProps extends FormControlProps {
   required?: boolean
 }
 
-export const NgmControl: React.FC<ControlProps> = (props: ControlProps) => {
-  const { children, label, placeholder, required } = props
+export const Control: React.FC<ControlProps> = (props: ControlProps) => {
+  const { children, label = '', placeholder, required } = props
   return (
-    <FloatingLabel label={label || ''} className={`${required && 'ngm-required'}`}>
+    <FloatingLabel label={label} className={`${required && 'ngm-required'}`}>
       <Form.Control placeholder={placeholder || label} required={required} {...props}>{children}</Form.Control>
     </FloatingLabel>
   )

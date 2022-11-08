@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import { NgmHeader } from './NgmHeader'
+import { Header } from './Header'
 
 describe('Enigma Header Test', () => {
   test('renders header text', () => {
     render(
       <BrowserRouter>
-        <NgmHeader brand='NgmHeader'></NgmHeader>
+        <Header brand='Header'></Header>
       </BrowserRouter>
     )
-    const textElement = screen.getByText('NgmHeader')
+    const textElement = screen.getByText('Header')
     expect(textElement).toBeInTheDocument()
   })
 

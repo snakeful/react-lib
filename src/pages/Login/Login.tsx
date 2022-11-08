@@ -1,8 +1,8 @@
+import { Check, Control } from 'components'
 import React, { useState } from 'react'
-import { Card, Form } from 'react-bootstrap'
+import { Button, Card, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { AnyAction } from 'redux'
-import { NgmBtn, NgmCheck, NgmControl } from '../../components'
 
 export interface LoginForm {
   login: () => AnyAction
@@ -37,17 +37,17 @@ export const Login: React.FC<LoginForm> = ({ login }) => {
           </Card.Header>
           <Card.Body>
             <Form.Group className='mt-1'>
-              <NgmControl label='Username/Email' value={user} onChange={handleUser} required></NgmControl>
+              <Control label='Username/Email' value={user} onChange={handleUser} required></Control>
             </Form.Group>
             <Form.Group className='mt-1'>
-              <NgmControl label='Password' type='password' value={password} onChange={handlePass} required></NgmControl>
+              <Control label='Password' type='password' value={password} onChange={handlePass} required></Control>
             </Form.Group>
             <Form.Group className='mt-1'>
-              <NgmCheck className='text-light' label='Remember me?' type='switch' checked={rememberMe} onChange={handleRememberMe}></NgmCheck>
+              <Check className='text-light' label='Remember me?' type='switch' checked={rememberMe} onChange={handleRememberMe}></Check>
             </Form.Group>
           </Card.Body>
           <Card.Footer className='text-end pt-0 pb-3'>
-            <NgmBtn type='submit'>Login</NgmBtn>
+            <Button type='submit'>Login</Button>
           </Card.Footer>
         </Card>
       </Form>

@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { NgmBtn } from './NgmBtn'
+import { Button } from './Button'
 
 describe('Enigma Button Test', () => {
   test('renders This is a button', () => {
     render(
-      <NgmBtn>This is a button!</NgmBtn>
+      <Button>This is a button!</Button>
     )
     const linkElement = screen.getByText(/This is a button!/i)
     expect(linkElement).toBeInTheDocument()
@@ -12,7 +12,7 @@ describe('Enigma Button Test', () => {
 
   test('check if click is called', () => {
     const clickFn = jest.fn()
-    render(<NgmBtn onClick={clickFn} data-testid='button'>This is a button!</NgmBtn>)
+    render(<Button onClick={clickFn} data-testid='button'>This is a button!</Button>)
     const button = screen.getByTestId('button')
     fireEvent.click(button)
     expect(clickFn).toHaveBeenCalled()

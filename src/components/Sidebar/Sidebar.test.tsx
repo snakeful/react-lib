@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { NgmSidebar } from './NgmSidebar'
+import { Sidebar } from './Sidebar'
 
 describe('Enigma Input Test', () => {
   const matchMediaMock = () => { // Must be called for non render HTML elements
@@ -20,8 +20,8 @@ describe('Enigma Input Test', () => {
 
   test('renders show sidebar', () => {
     matchMediaMock()
-    render(<NgmSidebar show={true}>NgmSidebar</NgmSidebar>)
-    const textElement = screen.getByText('NgmSidebar')
+    render(<Sidebar show={true}>Sidebar</Sidebar>)
+    const textElement = screen.getByText('Sidebar')
     expect(textElement).toBeInTheDocument()
   })
 })
