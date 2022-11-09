@@ -1,7 +1,7 @@
 import React from 'react'
-import { FloatingLabel, Form, FormControlProps } from 'react-bootstrap'
+import { Form, FormProps } from 'semantic-ui-react'
 
-export interface ControlProps extends FormControlProps {
+export interface ControlProps extends FormProps {
   label?: string
   required?: boolean
 }
@@ -9,8 +9,6 @@ export interface ControlProps extends FormControlProps {
 export const Control: React.FC<ControlProps> = (props: ControlProps) => {
   const { children, label = '', placeholder, required } = props
   return (
-    <FloatingLabel label={label} className={`${required && 'ngm-required'}`}>
-      <Form.Control placeholder={placeholder || label} required={required} {...props}>{children}</Form.Control>
-    </FloatingLabel>
+    <Form.Input fluid label={label} placeholder={placeholder || label} required={required}>{children}</Form.Input>
   )
 }

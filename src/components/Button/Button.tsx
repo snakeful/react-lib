@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button as ReactButton, ButtonProps } from 'react-bootstrap'
+import { Button as ReactButton, ButtonProps } from 'semantic-ui-react'
 
 export const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const { children, variant = 'primary' } = props
+  const { children, color = 'blue' } = props
   return (
-    <ReactButton variant={variant} {...props}>{children}</ReactButton>
+    <ReactButton color={color} {...props}>{children}</ReactButton>
   )
 }

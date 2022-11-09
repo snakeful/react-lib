@@ -1,4 +1,3 @@
-import '../App.scss'
 export * from './Button'
 export * from './Check'
 export * from './Control'

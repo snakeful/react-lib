@@ -1,7 +1,7 @@
 import { Button } from 'components'
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 export const Modules: React.FC<any> = (_props: any) => {
   const modules: any[] = [{
@@ -30,9 +30,9 @@ export const Modules: React.FC<any> = (_props: any) => {
             <Card.Body>What module {name} does
             </Card.Body>
             <Card.Footer className='text-end'>
-              <LinkContainer to={`${url}`}>
-                <Button variant='dark' size='sm'>GO</Button>
-              </LinkContainer>
+              <Link to={`${url}`}>
+                <Button variant='dark' size='mini'>GO</Button>
+              </Link>
             </Card.Footer>
           </Card>
         </div>)}
