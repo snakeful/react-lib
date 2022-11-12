@@ -1,33 +1,43 @@
 import React from 'react'
-import { NavDropdown, NavDropdownProps } from 'react-bootstrap'
 import { FaCog, FaDoorClosed, FaUser } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { AnyAction } from 'redux'
+import { Dropdown, DropdownProps, Menu } from 'semantic-ui-react'
 
-export interface ProfileProps extends NavDropdownProps {
-  logout?: () => void
+export interface ProfileProps {
+  children?: never[]
+  dropdown?: DropdownProps
+  inverted?: boolean
+  item?: boolean
+  fitted?: boolean
+  logout?: () => AnyAction
 };
 
-export const Profile: React.FC<ProfileProps> = (props: ProfileProps) => {
-  const { children, logout = () => { } } = props
-  const navProps = { ...props }
-  delete navProps.logout
+export const Profile: React.FC<ProfileProps> = ({ children, inverted, fitted, logout, dropdown = {} }) => {
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    logout && dispatch(logout())
+  }
   return (
-    <>
-      <NavDropdown {...navProps}>
-        <NavDropdown.Item>
-          <FaUser />
-          &nbsp;&nbsp;Profile
-        </NavDropdown.Item>
-        <NavDropdown.Item>
-          <FaCog />
-          &nbsp;&nbsp;Settings
-        </NavDropdown.Item>
-        {children}
-        <NavDropdown.Divider />
-        <NavDropdown.Item onClick={logout}>
-          <FaDoorClosed />
-          &nbsp;&nbsp;Logout
-        </NavDropdown.Item>
-      </NavDropdown>
-    </>
+    <Menu.Item inverted={inverted} fitted={fitted}>
+      <Dropdown {...dropdown}>
+        <Dropdown.Menu>
+          <Dropdown.Item>
+            <FaUser />
+            &nbsp;&nbsp;Profile
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <FaCog />
+            &nbsp;&nbsp;Settings
+          </Dropdown.Item>
+          {children}
+          <Dropdown.Divider />
+          <Dropdown.Item onClick={handleLogout}>
+            <FaDoorClosed />
+            &nbsp;&nbsp;Logout
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </Menu.Item>
   )
 }

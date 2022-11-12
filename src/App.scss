@@ -11,25 +11,25 @@
 }
 
 .ngm-modules {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
 
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
 
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: distribute;
-  justify-content: space-between;
+  -webkit-justify-content: space-between !important;
+  -ms-flex-pack: distribute !important;
+  justify-content: space-between !important;
 }
 
 .ngm-module {
   margin: 1rem 0 0 1rem !important;
 
-  flex-grow: 1;
+  flex-grow: 1 !important;
 }
 
 .ngm-required {

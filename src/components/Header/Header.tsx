@@ -1,39 +1,33 @@
 import React from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { Menu, Segment, SegmentProps } from 'semantic-ui-react'
 
-export interface HeaderProps extends React.CanvasHTMLAttributes<any> {
+export interface HeaderProps extends SegmentProps {
   brand: string
 }
 
 export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
-  const { brand, children } = props
+  const { brand, children, inverted } = props
   const navChildren: any[] =
     children instanceof Array ?
       (children as []).flat() :
       [children || {}]
-
+  const to = useNavigate()
+  const handleTo = () => to('/')
   return (
-    <div {...props}>
-      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-        <Container fluid>
-          {navChildren.filter(child => child.key === 'sidebar')}
-          <LinkContainer to='/'>
-            <Navbar.Brand>
-              {brand}
-            </Navbar.Brand>
-          </LinkContainer>
-          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-          <Navbar.Collapse id='responsive-navbar-nav'>
-            <Nav className='me-auto'>
-              {navChildren.filter(child => child.key === 'left')}
-            </Nav>
-            <Nav>
-              {navChildren.filter(child => child.key === 'right')}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+    <Segment inverted={inverted} style={{ marginBottom: 0 }}>
+      <Menu inverted={inverted} expand='lg' bg='dark'>
+        {navChildren.filter(child => child.key === 'sidebar')}
+        <Menu.Item header onClick={handleTo}>
+          {brand}
+        </Menu.Item>
+        <Menu.Menu>
+          {navChildren.filter(child => child.key === 'left')}
+        </Menu.Menu>
+        <Menu.Menu position='right'>
+          {navChildren.filter(child => child.key === 'right')}
+        </Menu.Menu>
+      </Menu>
+    </Segment>
   )
 }

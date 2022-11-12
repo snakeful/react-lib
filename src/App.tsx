@@ -1,33 +1,32 @@
 import { Layout } from 'components'
 import { Home, Login, Modules, NotFound } from 'pages'
 import React from 'react'
-import { Nav } from 'react-bootstrap'
 import { FaTh } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Route, Routes } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Menu } from 'semantic-ui-react'
 import { authActions } from './store/auth-slice'
 
 const App: React.FC = () => {
   const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn)
-  const dispatch = useDispatch()
+  const to = useNavigate()
+  const handleTo = () => to('/modules')
   return (
-    <div className='App'>
+    <div id='App'>
       {!isLoggedIn && <Login login={authActions.login} />}
       {isLoggedIn &&
         <Layout
+          inverted
           options={{
             brand: 'Enigma React Lib',
             sidebarTitle: 'Sidebar Menu',
-            logout: () => dispatch(authActions.logout())
+            logout: authActions.logout
           }}
           navLinks={[
-            <LinkContainer to='/modules' key='left'>
-              <Nav.Link className='text-light'>
-                <FaTh />
-                &nbsp;&nbsp;Modules
-              </Nav.Link>
-            </LinkContainer>
+            <Menu.Item onClick={handleTo} key='left'>
+              <FaTh />
+              &nbsp;&nbsp;Modules
+            </Menu.Item>
           ]}>
           <Routes key='content'>
             <Route path='/' element={<Home />} />

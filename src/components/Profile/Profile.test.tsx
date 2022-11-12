@@ -4,7 +4,7 @@ import { Profile } from './Profile'
 describe('Enigma Profile Test', () => {
   test('renders profile text', () => {
     render(
-      <Profile title='Profile' logout={() => { }}>
+      <Profile dropdown={{ title: 'Profile' }}>
       </Profile>
     )
     const profileElement = screen.getByText('Profile')

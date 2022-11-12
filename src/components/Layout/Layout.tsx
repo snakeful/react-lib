@@ -1,42 +1,44 @@
+import { Header, Profile, Sidebar } from 'components'
 import React, { useState } from 'react'
-import { Button, Container } from 'react-bootstrap'
 import { FaBars } from 'react-icons/fa'
-import { Header } from '../Header/Header'
-import { Profile } from '../Profile/Profile'
-import { Sidebar } from '../Sidebar/Sidebar'
+import { AnyAction } from 'redux'
+import { Container, Menu } from 'semantic-ui-react'
 
 export interface LayoutProps extends React.HTMLProps<any> {
-  variant?: string
+  inverted?: boolean
   navLinks?: any[]
   options?: {
     brand: string
     sidebarTitle?: string
-    logout: () => void
+    logout: () => AnyAction
   }
 };
 
 export const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
-  const { children, navLinks = [], options, variant = 'dark' } = props
-  const { brand = '', sidebarTitle = '', logout = () => { } } = options || {}
-  const [show, setShow] = useState(false)
+  const { children, navLinks = [], options, inverted = false } = props
+  const { brand = '', logout } = options || {}
+  const [visible, setVisible] = useState(false)
 
-  const toggleSidebar = () => setShow(true)
-  const onHide = () => setShow(false)
+  const toggleSidebar = () => {
+    setVisible(true)
+  }
+  const onHide = () => setVisible(false)
 
   return (
     <>
-      <Sidebar title={sidebarTitle} show={show} onHide={onHide}></Sidebar>
-      <Header brand={brand}>
-        <Button variant={variant} onClick={toggleSidebar} key='sidebar' className='mx-1'>
+      <Header inverted={inverted} brand={brand}>
+        <Menu.Item onClick={toggleSidebar} key='sidebar'>
           <FaBars />
-        </Button>
-        <Profile menuVariant={variant} title='Profile' align='end' logout={logout} key='right'>
+        </Menu.Item>
+        <Profile item fitted logout={logout} dropdown={{ item: true, text: 'Profile' }} key='right'>
         </Profile>
         {navLinks}
       </Header>
-      <Container fluid>
-        {children}
-      </Container>
+      <Sidebar inverted={inverted} visible={visible} onHide={onHide}>
+        <Container fluid>
+          {children}
+        </Container>
+      </Sidebar>
     </>
   )
 }

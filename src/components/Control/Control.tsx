@@ -1,7 +1,7 @@
 import React from 'react'
-import { Form, FormProps } from 'semantic-ui-react'
+import { Form, FormInputProps } from 'semantic-ui-react'
 
-export interface ControlProps extends FormProps {
+export interface ControlProps extends FormInputProps {
   label?: string
   required?: boolean
 }

@@ -13,12 +13,10 @@ export const Login: React.FC<LoginForm> = ({ login }) => {
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(true)
-  const [validated, setValidated] = useState(false)
   const handleUser = (event: any) => { setUser(event?.target?.value) }
   const handlePass = (event: any) => { setPassword(event?.target?.value) }
   const handleRememberMe = (event: any) => { setRememberMe(event?.target?.checked) }
   const handleSubmit = (event: any) => {
-    setValidated(true)
     event.preventDefault()
     const form = event.currentTarget
     if (form.checkValidity()) {
@@ -30,7 +28,7 @@ export const Login: React.FC<LoginForm> = ({ login }) => {
   }
   return (
     <>
-      <Form noValidate validated={validated} onSubmit={handleSubmit} className='ngm-login'>
+      <Form noValidate onSubmit={handleSubmit} className='ngm-login'>
         <Card>
           <Card.Content>
             <Card.Header style={{ align: 'center' }}>
@@ -41,7 +39,7 @@ export const Login: React.FC<LoginForm> = ({ login }) => {
             <Check label='Remember me?' toggle checked={rememberMe} onChange={handleRememberMe} required></Check>
           </Card.Content>
           <Card.Content extra>
-            <Button right active floated='right' color='blue' type='submit'>Login</Button>
+            <Button active floated='right' color='blue' type='submit'>Login</Button>
           </Card.Content>
         </Card>
       </Form>
